@@ -1,6 +1,7 @@
 
 import request from 'request'
 import express from 'express'
+import ip from 'ip'
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -10,6 +11,7 @@ const __dirname = dirname(__filename);
 
 const app = express()
 const port = 3000
+const address = ip.address()
 
 var client_id = 'b3c2339a149d46afa94a39347466b623';
 var client_secret = '24781c9b87264934935195113588b686';
@@ -43,5 +45,5 @@ app.get('/auth-without-login', async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port http://${address}:${port}`)
 })
