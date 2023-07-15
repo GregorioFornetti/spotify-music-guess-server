@@ -14,7 +14,7 @@ const app = express()
 const port = 3000
 
 var client_id = 'b3c2339a149d46afa94a39347466b623';
-var client_secret = '24781c9b87264934935195113588b686';
+var client_secret = '5d847b40e3f048fb82d38293aedd62e8';
 
 var authOptions = {
   url: 'https://accounts.spotify.com/api/token',
