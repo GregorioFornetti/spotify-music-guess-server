@@ -1,7 +1,8 @@
 FROM node:18-alpine
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir -p /home/node/app/back-end/node_modules && chown -R node:node /home/node/app/back-end
 WORKDIR /home/node/app
-COPY package*.json ./
+COPY . .
+WORKDIR /home/node/app/back-end
 RUN npm install
 COPY --chown=node:node . .
 EXPOSE 3000
