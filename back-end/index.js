@@ -1,6 +1,7 @@
 
 import request from 'request'
 import express from 'express'
+import 'dotenv/config'
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -11,8 +12,8 @@ const root =  dirname(dirname(__filename));
 const app = express()
 const port = 3000
 
-var client_id = '';
-var client_secret = '';
+var client_id = process.env.CLIENT_ID
+var client_secret = process.env.CLIENT_SECRET
 
 var authOptions = {
   url: 'https://accounts.spotify.com/api/token',
