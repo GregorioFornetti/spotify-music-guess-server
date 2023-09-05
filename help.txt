@@ -1,7 +1,0 @@
-var client_id = 'b3c2339a149d46afa94a39347466b623';
-var client_secret = '24781c9b87264934935195113588b686';
-
-Precisa trocar o config.ts para colocar o site do VPS
-Basta fazer build e mandar o dist que está dentro do front-end para o outro github
-
-docker-compose up
