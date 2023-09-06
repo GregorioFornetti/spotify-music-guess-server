@@ -1,0 +1,6 @@
+# Ignore potentially sensitive info
+.git
+
+docker-compose.yml
+Dockerfile
+.dockerignore

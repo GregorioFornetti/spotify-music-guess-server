@@ -6,4 +6,5 @@ WORKDIR /home/node/app/back-end
 RUN npm install
 COPY --chown=node:node . .
 EXPOSE 3000
+USER node
 CMD [ "node", "app.js" ]
