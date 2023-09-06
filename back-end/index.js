@@ -1,6 +1,7 @@
 
 import request from 'request'
 import express from 'express'
+import 'dotenv/config'
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -8,13 +9,11 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const root =  dirname(dirname(__filename));
 
-console.log(root)
-
 const app = express()
 const port = 3000
 
-var client_id = 'b3c2339a149d46afa94a39347466b623';
-var client_secret = '5d847b40e3f048fb82d38293aedd62e8';
+var client_id = process.env.CLIENT_ID
+var client_secret = process.env.CLIENT_SECRET
 
 var authOptions = {
   url: 'https://accounts.spotify.com/api/token',
@@ -35,6 +34,10 @@ app.get('/home.html', (req, res) => {
   res.sendFile('front-end/dist/home.html', {root: root})
 })
 
+app.get('/login.html', (req, res) => {
+  res.sendFile('front-end/dist/login.html', {root: root})
+})
+
 app.get('/assets/:asset', (req, res) => {
   res.sendFile(`front-end/dist/assets/${req.params.asset}`, {root: root})
 })
@@ -52,5 +55,5 @@ app.get('/auth-without-login', async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Spotify music guess app listening on port ${port}`)
 })
