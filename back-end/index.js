@@ -39,7 +39,7 @@ app.get('/spotify-music-guess/login.html', (req, res) => {
 })
 
 app.get('/spotify-music-guess/assets/:asset', (req, res) => {
-  res.sendFile(`front-end/dist/assets/${req.params.asset}`, {root: root})
+  res.sendFile(`front-end/dist/spotify-music-guess/assets/${req.params.asset}`, {root: root})
 })
 
 app.get('/spotify-music-guess/auth-without-login', async (req, res) => {
