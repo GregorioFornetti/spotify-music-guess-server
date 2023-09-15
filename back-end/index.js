@@ -39,7 +39,7 @@ app.get('/spotify-music-guess/login.html', (req, res) => {
 })
 
 app.get('/spotify-music-guess/assets/:asset', (req, res) => {
-  res.sendFile(`front-end/dist/assets/${req.params.asset}`, {root: root})
+  res.sendFile(`front-end/dist/spotify-music-guess/assets/${req.params.asset}`, {root: root})
 })
 
 app.get('/spotify-music-guess/auth-without-login', async (req, res) => {
@@ -52,6 +52,19 @@ app.get('/spotify-music-guess/auth-without-login', async (req, res) => {
       console.log('Verifique se as chaves de autenticação foram substituidas')
     }
   })
+})
+
+app.get('/spotify-music-guess/get-redirect-response', async (req, res) => {
+  // Não é possível coletar a resposta de redirecionamento no front-end. Então é feito um proxy no back-end
+  var options = {
+    'url': req.query.url,
+    'headers': {
+    }
+  };
+  request.get(options, function (error, response) {
+    if (error) throw new Error(error);
+    res.send(response.body);
+  });
 })
 
 app.listen(port, () => {
